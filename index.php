@@ -38,7 +38,6 @@ $buku = mysqli_query($db, "SELECT * FROM buku");
                         </div>
                     </div>
                     <a class="nav-item nav-link" href="data_pinjam.php">Data Peminjam</a>
-                    <a class="nav-item nav-link" href="#">Akun Anda</a>
                     <button class="btn btn-danger">Keluar</button>
                 </div>
             </div>
@@ -51,6 +50,7 @@ $buku = mysqli_query($db, "SELECT * FROM buku");
 
     <!-- Content -->
     <div class="container">
+        <h2>DAFTAR BUKU</h2>
         <div class="row">
             <?php foreach ($buku as $row) : ?>
                 <div class="col-md-4">
@@ -93,7 +93,7 @@ $buku = mysqli_query($db, "SELECT * FROM buku");
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Kembali</button>
                                         </div>
                                     </div>
                                 </div>
