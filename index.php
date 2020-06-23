@@ -17,7 +17,7 @@ $buku = mysqli_query($db, "SELECT * FROM buku");
     <title>Perpustakaan Online</title>
 </head>
 
-<body>
+<body class="bg-light">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -27,7 +27,7 @@ $buku = mysqli_query($db, "SELECT * FROM buku");
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="#">Home</a>
+                    <a class="nav-item nav-link" href="index.php">Home</a>
                     <div class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Kategori
@@ -37,7 +37,7 @@ $buku = mysqli_query($db, "SELECT * FROM buku");
                             <a class="dropdown-item" href="pelajaran.php">Pelajaran</a>
                         </div>
                     </div>
-                    <a class="nav-item nav-link" href="data_pinjam.php">Data Peminjam</a>
+                    <a class="nav-item nav-link" href="daftar_peminjam.php">Data Peminjam</a>
                     <a class="btn btn-danger" href="logout.php">Keluar</a>
                 </div>
             </div>
@@ -59,47 +59,48 @@ $buku = mysqli_query($db, "SELECT * FROM buku");
                         <div class="card-body">
                             <h5 class="card-title text-primary"><?= $row["judul"]; ?></h5>
                             <h6 class="card-subtitle mb-2 text-muted"><?= $row["tahun"]; ?></h6>
-                            <a href="#" class="btn btn-primary">Pinjam Buku</a>
+                            <a href="inputdata.php" class="btn btn-primary">Pinjam Buku</a>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
                                 Detail
                             </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Detail Buku</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="container-fluid">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <img src="img/<?= $row["gambar"]; ?>" class="img-fluid">
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <ul class="list-group">
-                                                            <li class="list-group-item">Kode Buku : <?= $row["kode"]; ?></li>
-                                                            <li class="list-group-item">Judul Buku : <?= $row["judul"]; ?></li>
-                                                            <li class="list-group-item">Penulis : <?= $row["penulis"]; ?></li>
-                                                            <li class="list-group-item">Penerbit : <?= $row["penerbit"]; ?></li>
-                                                            <li class="list-group-item">Kategori : <?= $row["kategori"]; ?></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
+                        </div>
+                    </div>
+                    <!-- Modal Detail -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Detail Buku</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <img src="img/<?= $row["gambar"]; ?>" class="img-fluid">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <ul class="list-group">
+                                                    <li class="list-group-item">Kode Buku : <?= $row["kode"]; ?></li>
+                                                    <li class="list-group-item">Judul Buku : <?= $row["judul"]; ?></li>
+                                                    <li class="list-group-item">Penulis : <?= $row["penulis"]; ?></li>
+                                                    <li class="list-group-item">Penerbit : <?= $row["penerbit"]; ?></li>
+                                                    <li class="list-group-item">Kategori : <?= $row["kategori"]; ?></li>
+                                                </ul>
                                             </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Kembali</button>
-                                        </div>
                                     </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Kembali</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- End of Modal Detail -->
                 </div>
             <?php endforeach; ?>
         </div>
