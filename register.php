@@ -1,66 +1,97 @@
 <?php
-include('functions.php');
-if (isset($_POST["register"])) {
-    if (register($_POST) > 0) {
-        echo "
-            <script>
-                alert('User baru telah ditambahkan !')
-            </script>
-        ";
-        header("Location: login.php");
-        exit;
-    } else {
-        echo mysqli_error($db);
+include_once('connect.php');
+$database = new database();
+if (isset($_POST['register'])) {
+    $username = $_POST['username'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $nama = $_POST['nama'];
+    if ($database->register($username, $password, $nama)) {
+        header('location:login.php');
     }
 }
+
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Register Form</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sticky-footer/">
 
-    <title>Register Page</title>
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer.css" rel="stylesheet">
 </head>
 
-<body class="bg-light">
-    <div class="container-mt-5">
-        <div class="row d-flex justify-content-center mt-5">
-            <div class="col-md-5">
-                <form action="" method="POST">
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" name="username" id="username" placeholder="Masukkan Username.." required />
+<body class="d-flex flex-column h-100">
+    <!-- Begin page content -->
+    <main role="main" class="flex-shrink-0">
+        <div class="container">
+            <h1 class="mt-5">Register Form</h1>
+            <p class="lead">Silahkan Daftarkan Identitas Anda</p>
+            <hr />
+            <form method="post" action="">
+                <div class="form-group row">
+                    <label for="username" class="col-sm-2 col-form-label">Username</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
                     </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan Password.." required />
-                    </div>
-                    <div class="form-group">
-                        <label for="password2">Konfirmasi Password</label>
-                        <input type="password" class="form-control" name="password2" id="password2" placeholder="Konfirmasi Password.." required />
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Masukkan Email.." required />
-                    </div>
+                </div>
 
-                    <button class="btn btn-primary btn-block" type="submit" name="register">Register</button>
-                </form>
-            </div>
+                <div class="form-group row">
+                    <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="password" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <a href="login.php" class="btn btn-success">Login</a>
+                        <button type="submit" class="btn btn-primary" name="register">Register</button>
+                    </div>
+                </div>
+            </form>
         </div>
-    </div>
+    </main>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <span class="text-muted">PROJECT-ABD@2020</span>
+        </div>
+    </footer>
 </body>
 
 </html>
