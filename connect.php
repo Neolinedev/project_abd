@@ -12,16 +12,15 @@ class database
         $this->koneksi = mysqli_connect($this->host, $this->username, $this->password, $this->database);
     }
 
-
     function register($username, $password, $nama)
     {
-        $insert = mysqli_query($this->koneksi, "insert into tb_user values ('','$username','$password','$nama')");
+        $insert = mysqli_query($this->koneksi, "INSERT INTO user VALUES ('','$username','$password','$nama')");
         return $insert;
     }
 
     function login($username, $password, $remember)
     {
-        $query = mysqli_query($this->koneksi, "select * from tb_user where username='$username'");
+        $query = mysqli_query($this->koneksi, "SELECT * FROM user WHERE username='$username'");
         $data_user = $query->fetch_array();
         if (password_verify($password, $data_user['password'])) {
 
@@ -38,7 +37,7 @@ class database
 
     function relogin($username)
     {
-        $query = mysqli_query($this->koneksi, "select * from tb_user where username='$username'");
+        $query = mysqli_query($this->koneksi, "SELECT * FROM user WHERE username='$username'");
         $data_user = $query->fetch_array();
         $_SESSION['username'] = $username;
         $_SESSION['nama'] = $data_user['nama'];

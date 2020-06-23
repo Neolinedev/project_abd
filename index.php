@@ -38,7 +38,7 @@ $buku = mysqli_query($db, "SELECT * FROM buku");
                         </div>
                     </div>
                     <a class="nav-item nav-link" href="data_pinjam.php">Data Peminjam</a>
-                    <button class="btn btn-danger">Keluar</button>
+                    <a class="btn btn-danger" href="logout.php">Keluar</a>
                 </div>
             </div>
         </div>

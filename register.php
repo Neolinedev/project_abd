@@ -9,7 +9,6 @@ if (isset($_POST['register'])) {
         header('location:login.php');
     }
 }
-
 ?>
 <!doctype html>
 <html lang="en" class="h-100">
@@ -26,8 +25,6 @@ if (isset($_POST['register'])) {
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -45,7 +42,7 @@ if (isset($_POST['register'])) {
         }
     </style>
     <!-- Custom styles for this template -->
-    <link href="sticky-footer.css" rel="stylesheet">
+    <link href="css/sticky-footer.css" rel="stylesheet">
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -62,15 +59,12 @@ if (isset($_POST['register'])) {
                         <input type="text" class="form-control" id="username" name="username" placeholder="Username">
                     </div>
                 </div>
-
                 <div class="form-group row">
                     <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
                     </div>
                 </div>
-
-
                 <div class="form-group row">
                     <label for="password" class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-10">
