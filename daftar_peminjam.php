@@ -1,3 +1,7 @@
+<?php
+include('functions.php');
+$nama = mysqli_query($db, "SELECT * FROM daftar_peminjam");
+?>
 <!doctype html>
 <html lang="en">
 
@@ -45,30 +49,28 @@
     <div class="container">
         <div class="row mt-5">
             <?php $i = 1; ?>
-            <?php
-            $nama = $_POST["nama"];
-            $email = $_POST["email"];
-            $nama_buku = $_POST["buku"];
-            ?>
-            <table class="table table-striped">
-                <thead>
+            <table class="table">
+                <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Buku</th>
+                        <th scope="col">Nama Buku</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th><?= $i; ?></th>
-                        <td><?= $nama; ?></td>
-                        <td><?= $email; ?></td>
-                        <td><?= $nama_buku; ?></td>
-                    </tr>
-                </tbody>
+                <?php foreach ($nama as $row) : ?>
+                    <tbody>
+                        <tr>
+                            <th><?= $i++; ?></th>
+                            <td><?= $row["nama"]; ?></td>
+                            <td><?= $row["email"]; ?></td>
+                            <td><?= $row["nama_buku"]; ?></td>
+                            <td><a href="hapus.php?id_peminjam= <?= $row["id_peminjam"]; ?>" onclick="return confirm('Anda yakin ingin mengembalikan buku ini ?');" class="btn btn-danger">Kembalikan Buku</a></td>
+                        </tr>
+                    </tbody>
+                <?php endforeach; ?>
             </table>
-            <?php $i++; ?>
         </div>
     </div>
     <!-- End of Content -->

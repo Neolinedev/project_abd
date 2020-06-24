@@ -25,3 +25,11 @@ function tambah($data)
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }
+
+function kembali($id_peminjam)
+{
+    global $db;
+    mysqli_query($db, "DELETE FROM daftar_peminjam WHERE id_peminjam = $id_peminjam");
+
+    return mysqli_affected_rows($db);
+}
