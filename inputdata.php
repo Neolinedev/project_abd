@@ -1,3 +1,23 @@
+<?php
+include('functions.php');
+if (isset($_POST["submit"])) {
+    if (tambah($_POST) > 0) {
+        echo "
+            <script>
+                alert('Anda Berhasil Meminjam Buku !')
+                document.location.href = 'daftar_peminjam.php'
+            </script>
+        ";
+    } else {
+        echo "
+            <script>
+                alert('Anda Gagal Meminjam Buku !')
+                document.location.href = 'inputdata.php'
+            </script>
+        ";
+    }
+}
+?>
 <!doctype html>
 <html lang="en" class="h-100">
 
