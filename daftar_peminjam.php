@@ -66,7 +66,7 @@ $nama = mysqli_query($db, "SELECT * FROM daftar_peminjam");
                             <td><?= $row["nama"]; ?></td>
                             <td><?= $row["email"]; ?></td>
                             <td><?= $row["nama_buku"]; ?></td>
-                            <td><a href="hapus.php?id_peminjam= <?= $row["id_peminjam"]; ?>" onclick="return confirm('Anda yakin ingin mengembalikan buku ini ?');" class="btn btn-danger">Kembalikan Buku</a></td>
+                            <td><a href="kembali.php?id_peminjam= <?= $row["id_peminjam"]; ?>" onclick="return confirm('Anda yakin ingin mengembalikan buku ini ?');" class="btn btn-danger">Kembalikan Buku</a></td>
                         </tr>
                     </tbody>
                 <?php endforeach; ?>

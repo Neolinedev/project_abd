@@ -59,7 +59,7 @@ $buku = mysqli_query($db, "SELECT * FROM buku");
                         <div class="card-body">
                             <h5 class="card-title text-primary"><?= $row["judul"]; ?></h5>
                             <h6 class="card-subtitle mb-2 text-muted"><?= $row["tahun"]; ?></h6>
-                            <a href="inputdata.php" class="btn btn-primary">Pinjam Buku</a>
+                            <a href="inputdata.php?judul= <?= $row["judul"]; ?>" class="btn btn-primary">Pinjam Buku</a>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
                                 Detail

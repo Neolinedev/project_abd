@@ -12,20 +12,6 @@ function query($query)
     return $rows;
 }
 
-function tambah($data)
-{
-    global $db;
-    $nama = htmlspecialchars($data["nama"]);
-    $email = htmlspecialchars($data["email"]);
-    $nama_buku = htmlspecialchars($data["nama_buku"]);
-
-    $query = "INSERT INTO daftar_peminjam VALUES
-            ('','$nama','$email','$nama_buku')
-            ";
-    mysqli_query($db, $query);
-    return mysqli_affected_rows($db);
-}
-
 function kembali($id_peminjam)
 {
     global $db;

@@ -1,22 +1,7 @@
 <?php
 include('functions.php');
-if (isset($_POST["submit"])) {
-    if (tambah($_POST) > 0) {
-        echo "
-            <script>
-                alert('Anda Berhasil Meminjam Buku !')
-                document.location.href = 'daftar_peminjam.php'
-            </script>
-        ";
-    } else {
-        echo "
-            <script>
-                alert('Anda Gagal Meminjam Buku !')
-                document.location.href = 'inputdata.php'
-            </script>
-        ";
-    }
-}
+$judul = $_GET["judul"];
+$buku = query("SELECT judul FROM buku WHERE judul = $judul");
 ?>
 <!doctype html>
 <html lang="en" class="h-100">
@@ -60,7 +45,7 @@ if (isset($_POST["submit"])) {
             <h1 class="mt-5">Form Pinjam Buku</h1>
             <p class="lead">Silahkan Daftarkan Identitas Anda</p>
             <hr />
-            <form action="daftar_peminjam.php" method="POST">
+            <form action="inputproses.php" method="POST">
                 <div class="form-group row">
                     <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                     <div class="col-sm-10">
@@ -76,7 +61,7 @@ if (isset($_POST["submit"])) {
                 <div class="form-group row">
                     <label for="buku" class="col-sm-2 col-form-label">Judul Buku</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="buku" name="buku" placeholder="Masukkan Judul Buku..">
+                        <input type="text" class="form-control" id="buku" name="buku" placeholder="<?= $buku["judul"]; ?>">
                     </div>
                 </div>
                 <div class="form-group row">
