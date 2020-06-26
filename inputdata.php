@@ -15,6 +15,7 @@ $buku = query("SELECT judul FROM buku WHERE judul = $judul");
     <title>Form Data Peminjam</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sticky-footer/">
+    <link rel="shortcut icon" href="img/buku.ico">
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
