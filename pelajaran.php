@@ -35,11 +35,11 @@ $pelajaran = mysqli_query($db, "SELECT * FROM buku WHERE kategori = 'Pelajaran'"
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="novel.php">Novel</a>
-                            <a class="dropdown-item" href="#">Pelajaran</a>
+                            <a class="dropdown-item" href="pelajaran.php">Pelajaran</a>
                         </div>
                     </div>
-                    <a class="nav-item nav-link" href="#">Data Peminjaman</a>
-                    <a class="nav-item nav-link" href="#">Akun Anda</a>
+                    <a class="nav-item nav-link" href="daftar_peminjam.php">Data Peminjam</a>
+                    <a class="btn btn-danger" href="logout.php">Keluar</a>
                 </div>
             </div>
         </div>
