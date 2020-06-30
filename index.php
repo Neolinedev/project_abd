@@ -60,48 +60,12 @@ $buku = mysqli_query($db, "SELECT * FROM buku");
                         <div class="card-body">
                             <h5 class="card-title text-primary"><?= $row["judul"]; ?></h5>
                             <h6 class="card-subtitle mb-2 text-muted"><?= $row["tahun"]; ?></h6>
+                            <p class="card-text"><?= $row["penulis"]; ?></p>
+                            <p class="card-text"><?= $row["penerbit"]; ?></p>
+                            <p class="card-text"><?= $row["kategori"]; ?></p>
                             <a href="inputdata.php?judul= <?= $row["judul"]; ?>" class="btn btn-primary">Pinjam Buku</a>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
-                                Detail
-                            </button>
                         </div>
                     </div>
-                    <!-- Modal Detail -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Detail Buku</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <img src="img/<?= $row["gambar"]; ?>" class="img-fluid">
-                                            </div>
-                                            <div class="col-md-8">
-                                                <ul class="list-group">
-                                                    <li class="list-group-item">Kode Buku : <?= $row["kode"]; ?></li>
-                                                    <li class="list-group-item">Judul Buku : <?= $row["judul"]; ?></li>
-                                                    <li class="list-group-item">Penulis : <?= $row["penulis"]; ?></li>
-                                                    <li class="list-group-item">Penerbit : <?= $row["penerbit"]; ?></li>
-                                                    <li class="list-group-item">Kategori : <?= $row["kategori"]; ?></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Kembali</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of Modal Detail -->
                 </div>
             <?php endforeach; ?>
         </div>
