@@ -1,7 +1,7 @@
 <?php
 include('functions.php');
 $judul = $_GET["judul"];
-$buku = query("SELECT judul FROM buku WHERE judul = $judul");
+$buku = mysqli_query($db, "SELECT judul FROM buku WHERE judul = '$judul'");
 ?>
 <!doctype html>
 <html lang="en" class="h-100">
@@ -62,7 +62,7 @@ $buku = query("SELECT judul FROM buku WHERE judul = $judul");
                 <div class="form-group row">
                     <label for="buku" class="col-sm-2 col-form-label">Judul Buku</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="buku" name="buku" placeholder="<?= $buku["judul"]; ?>">
+                        <input type="text" class="form-control" id="buku" name="buku" placeholder="<?= $judul; ?>">
                     </div>
                 </div>
                 <div class="form-group row">
