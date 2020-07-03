@@ -37,7 +37,7 @@ $nama = mysqli_query($db, "SELECT * FROM daftar_peminjam");
                             <a class="dropdown-item" href="pelajaran.php">Pelajaran</a>
                         </div>
                     </div>
-                    <a class="nav-item nav-link" href="#">Data Peminjam</a>
+                    <a class="nav-item nav-link active" href="#">Data Peminjam <span class="sr-only">(current)</span></a>
                     <a class="btn btn-danger" href="logout.php">Keluar</a>
                 </div>
             </div>
