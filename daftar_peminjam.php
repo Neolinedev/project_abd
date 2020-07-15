@@ -57,6 +57,8 @@ $nama = mysqli_query($db, "SELECT * FROM daftar_peminjam");
                         <th scope="col">Nama</th>
                         <th scope="col">Email</th>
                         <th scope="col">Nama Buku</th>
+                        <th scope="col">Tanggal Pinjam</th>
+                        <th scope="col">Tanggal Kembali</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -66,7 +68,9 @@ $nama = mysqli_query($db, "SELECT * FROM daftar_peminjam");
                             <th><?= $i++; ?></th>
                             <td><?= $row["nama"]; ?></td>
                             <td><?= $row["email"]; ?></td>
-                            <td><?= $row["nama_buku"]; ?></td>
+                            <td><?= $row["judul"]; ?></td>
+                            <td><?= $row["tgl_pinjam"]; ?></td>
+                            <td><?= $row["tgl_kembali"]; ?></td>
                             <td><a href="kembali.php?id_peminjam= <?= $row["id_peminjam"]; ?>" onclick="return confirm('Anda yakin ingin mengembalikan buku ini ?');" class="btn btn-danger">Kembalikan Buku</a></td>
                         </tr>
                     </tbody>
