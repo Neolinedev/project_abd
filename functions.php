@@ -12,10 +12,10 @@ function query($query)
     return $rows;
 }
 
-function kembali($id_peminjam)
+function kembali($tgl_kembali)
 {
     global $db;
-    mysqli_query($db, "DELETE FROM daftar_peminjam WHERE id_peminjam = $id_peminjam");
+    mysqli_query($db, "DELETE FROM daftar_peminjam WHERE tgl_kembali = $tgl_kembali");
 
     return mysqli_affected_rows($db);
 }

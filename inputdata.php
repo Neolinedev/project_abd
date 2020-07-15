@@ -50,7 +50,7 @@ $buku = mysqli_query($db, "SELECT judul FROM buku WHERE judul = '$judul'");
 				<div class="form-group row">
 					<label for="nama" class="col-sm-2 col-form-label">Nama</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Anda..">
+						<input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Anda.." autofocus>
 					</div>
 				</div>
 				<div class="form-group row">
@@ -62,7 +62,7 @@ $buku = mysqli_query($db, "SELECT judul FROM buku WHERE judul = '$judul'");
 				<div class="form-group row">
 					<label for="buku" class="col-sm-2 col-form-label">Judul Buku</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="buku" name="buku" value="<?= $judul; ?>">
+						<input type="text" class="form-control" id="buku" name="buku" readonly value="<?= $judul; ?>">
 					</div>
 				</div>
 				<div class="form-group row">
